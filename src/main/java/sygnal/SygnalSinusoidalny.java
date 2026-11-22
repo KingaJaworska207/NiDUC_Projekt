@@ -5,6 +5,8 @@ package sygnal;
  */
 public class SygnalSinusoidalny {
 
+    //y(t) = A * sin( (2 * pi * t)/T )
+
     // pola klasy (parametry sygnału)
     private double amplituda;
     private double okres;
@@ -15,7 +17,7 @@ public class SygnalSinusoidalny {
      * Konstruktor klasy SygnalSinusoidalny
      * @param amplituda amplituda, czyli jak mocno sygnał odchyla się w górę i w dół od środka
      * @param okres okres, czyli liczba kroków potrzebna na wykonanie jednej pełnej fali
-     * @param przesuniecie przesunięcie pionowe, czyliwartość bazowa, wokół której oscyluje sygnał
+     * @param przesuniecie przesunięcie pionowe, czyli wartość bazowa, wokół której oscyluje sygnał
      */
     public SygnalSinusoidalny(double amplituda, double okres, double przesuniecie) {
         this.amplituda = amplituda;

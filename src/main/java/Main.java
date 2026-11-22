@@ -7,22 +7,23 @@ import zaklocenia.KanalPomiarowy;
 public class Main {
     public static void main(String[] args) {
         // Sygnał wzorcowy
-        SygnalSinusoidalny sygnal = new SygnalSinusoidalny(10.0, 20.0, 50.0);
+        SygnalSinusoidalny sygnal = new SygnalSinusoidalny(10.0, 25.0, 10.0);
 
         // Trzy niezależne kanały pomiarowe
-        KanalPomiarowy kanal1 = new KanalPomiarowy(0.5);
+        KanalPomiarowy kanal1 = new KanalPomiarowy(0.15);
 
-        KanalPomiarowy kanal2 = new KanalPomiarowy(0.5);
+        KanalPomiarowy kanal2 = new KanalPomiarowy(0.15);
         kanal2.ustawBledyGrube(0.2, 10.0);
 
-        KanalPomiarowy kanal3 = new KanalPomiarowy(0.5);
+        KanalPomiarowy kanal3 = new KanalPomiarowy(0.15);
         kanal3.ustawAwarie(10, -999.0);
 
         // Algorytm głosowania
-        AlgorytmGlosujacy wiekszosciowy = new GlosowanieWiekszosciowe(1.5);
+        AlgorytmGlosujacy wiekszosciowy = new GlosowanieWiekszosciowe(0.5);
 
-        System.out.println("Krok | Wzorzec | Kanal 1 | Kanal 2 | Kanal 3 | Wiekszosciowy");
-        System.out.println("------------------------------------------------------------");
+        System.out.println();
+        System.out.println("Krok | Wzorzec | K1 szum | K2 błąd gruby | K3 awaria | Większościowy");
+        System.out.println("-------------------------------------------------------------------");
 
         for (int krok = 0; krok <= 20; krok++) {
             double wzorzec = sygnal.obliczWartosc(krok);
@@ -34,7 +35,6 @@ public class Main {
             double[] odczyty = {odczyt1, odczyt2, odczyt3};
             WynikGlosowania wynik = wiekszosciowy.glosuj(odczyty);
 
-            // tekst do wyniku
             String tekstWyniku;
             if (wynik.czyZgoda()) {
                 tekstWyniku = String.format("%7.2f", wynik.getWartosc());
@@ -42,7 +42,7 @@ public class Main {
                 tekstWyniku = "BRAK ZGODY";
             }
 
-            System.out.printf("%4d | %7.2f | %7.2f | %7.2f | %7.2f | %s%n",
+            System.out.printf("%4d | %7.2f | %7.2f | %13.2f | %9.2f | %s%n",
                     krok, wzorzec, odczyt1, odczyt2, odczyt3, tekstWyniku);
         }
     }

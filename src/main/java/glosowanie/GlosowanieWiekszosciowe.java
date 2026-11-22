@@ -1,19 +1,34 @@
 package glosowanie;
 
+/**
+ * Klasa implementująca działanie algorytmu większościowego (Majority Voter)
+ */
 public class GlosowanieWiekszosciowe implements AlgorytmGlosujacy {
 
-    // Próg tolerancji - maksymalna dopuszczalna różnica między dwoma zgodnymi wartościami
     private double progTolerancji;
 
+    /**
+     * Konstruktor klasy GlosowanieWiekszosciowe
+     * @param progTolerancji maksymalna dopuszczalna różnica między dwoma zgodnymi wartościami
+     */
     public GlosowanieWiekszosciowe(double progTolerancji) {
         this.progTolerancji = progTolerancji;
     }
 
+    /**
+     * Metoda pozwalająca na pobranie nazwy algorytmu głosującego i jego prarametrów
+     * @return nazwa algorytmu waraz z jego parametrem
+     */
     @Override
     public String pobierzNazwe() {
         return "Algorytm wiekszosciowy (prog = " + progTolerancji + ")";
     }
 
+    /**
+     * Metoda przeprowadzająca głosownaie w algorytmie większościowym
+     * @param odczyty wartości uzyskane z kanałów pomiarowych
+     * @return wynik głosowania
+     */
     @Override
     public WynikGlosowania glosuj(double[] odczyty) {
         // sprawdzamy czy dostaliśmy 3 odczyty

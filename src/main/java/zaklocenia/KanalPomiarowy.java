@@ -2,6 +2,9 @@ package zaklocenia;
 
 import java.util.Random;
 
+/**
+ * Klasa reprezentująca kanały pomiarowe, do których dodawane mogą być zakłócenia
+ */
 public class KanalPomiarowy {
 
     // generator liczb losowych
