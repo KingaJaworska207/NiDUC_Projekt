@@ -18,11 +18,11 @@ public class Main {
         kanal2.ustawBledyGrube(0.05, 10.0);
 
         KanalPomiarowy kanal3 = new KanalPomiarowy(0.15);
-        kanal3.ustawAwarie(10, -999.0);
+        kanal3.ustawAwarie(14, -999.0);
 
         // Algorytmy głosowania
         AlgorytmGlosujacy wiekszosciowy = new GlosowanieWiekszosciowe(0.5);
-        AlgorytmGlosujacy sredniaWazona = new GlosowanieSredniaWazona(1.0, 1.0, 1.0);
+        AlgorytmGlosujacy sredniaWazona = new GlosowanieSredniaWazona(5.0, 3.0, 2.0);
 
         System.out.println();
         System.out.println("Krok | Wzorzec | K1 szum | K2 błąd gruby | K3 awaria | Większościowy | Średniej ważonej");
